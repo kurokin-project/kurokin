@@ -97,10 +97,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1517356801; // January 31st, 2018
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000700070");
+        consensus.nMinimumChainWork = uint256S("0xf587d052c52fe8df9b92202c152969a972cc94eee916ec023aa625b609100a2b");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x58478b77d890d7977e557f60b48bd5ab6ecac3b7dd7a0e7836fa4ceb4713ceb5"); //6
+        consensus.defaultAssumeValid = uint256S("0xeb1a2d51ee6c35df513f03509006ba012ac7385d88c171969f3b46518390231d"); //24000
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -141,16 +141,20 @@ public:
         fMineBlocksOnDemand = false;
 
         checkpointData = (CCheckpointData) {
-	boost::assign::map_list_of
-	(    6, uint256S("0x58478b77d890d7977e557f60b48bd5ab6ecac3b7dd7a0e7836fa4ceb4713ceb5"))
-};
+            boost::assign::map_list_of
+            (  1500, uint256S("0x409fa2ddbe8577fadf71741eb47241ce058b70b4ce733afdc82ead792a4f2de4"))
+            (  4032, uint256S("0xd79dbab44973a644fecd677a2dc4eb6052f70141f3e2e487faac8127f465b096"))
+            (  8064, uint256S("0xdc6ae84be02db40e68ca91ed536254daa6d1026cc63ab2429d9e778c0d5d23dc"))
+            ( 16128, uint256S("0xc8f2604a72cc212750295b122fce66f0bfb73630bfd8b2f371cdd41cad7ac419"))
+            ( 23420, uint256S("0x0e63cd3e155e06d4cbe3f8151b3c6a28e96a25442959d78e90d02d0985b913b1"))
+        };
 
         chainTxData = ChainTxData{
-            // Data as of block b44bc5ae41d1be67227ba9ad875d7268aa86c965b1d64b47c35be6e8d5c352f4 (height 1155626).
-            1527226970, // * UNIX timestamp of last known number of transactions GMT 05-42-50 25-05-2018
-            0,  // * total number of transactions between genesis and that timestamp
+            // Data as of block eb1a2d51ee6c35df513f03509006ba012ac7385d88c171969f3b46518390231d (height 24000).
+            1527834744, // * UNIX timestamp of last known number of transactions
+            24073,  // * total number of transactions between genesis and that timestamp
                     //   (the tx=... number in the SetBestChain debug.log lines)
-            0     // * estimated number of transactions per second after that timestamp
+            0.06     // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -296,13 +300,21 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = true; 
 
-        checkpointData = (CCheckpointData){
+        checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (0, uint256S("0x"))
+            (  1500, uint256S("0x841a2965955dd288cfa707a755d05a54e45f8bd476835ec9af4402a2b59a2967"))
+            (  4032, uint256S("0x9ce90e427198fc0ef05e5905ce3503725b80e26afd35a987965fd7e3d9cf0846"))
+            (  8064, uint256S("0xeb984353fc5190f210651f150c40b8a4bab9eeeff0b729fcb3987da694430d70"))
+            ( 16128, uint256S("0x602edf1859b7f9a6af809f1d9b0e6cb66fdc1d4d9dcd7a4bec03e12a1ccd153d"))
+            ( 23420, uint256S("0xd80fdf9ca81afd0bd2b2a90ac3a9fe547da58f2530ec874e978fce0b5101b507"))
         };
 
         chainTxData = ChainTxData{
-            0,0,0
+            // Data as of block eb1a2d51ee6c35df513f03509006ba012ac7385d88c171969f3b46518390231d (height 24000).
+            1487715936, // * UNIX timestamp of last known number of transactions
+            9243806,  // * total number of transactions between genesis and that timestamp
+                    //   (the tx=... number in the SetBestChain debug.log lines)
+            0.06     // * estimated number of transactions per second after that timestamp
         };
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
